@@ -4,6 +4,7 @@ from langchain_core.prompts.prompt import PromptTemplate
 from langchain_openai import ChatOpenAI, OpenAI
 from langchain_core.runnables import RunnableConfig, chain
 from langchain_core.tools import tool
+OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 
 @tool
 def faq_answers(query: str) -> dict:
@@ -17,7 +18,7 @@ def faq_answers(query: str) -> dict:
         """
 
     prompt = PromptTemplate(input_variables=["query"], template=prompt_template)
-    llm = ChatOpenAI(base_url="https://models.inference.ai.azure.com", model="gpt-4o", openai_api_key='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')
+    llm = ChatOpenAI(base_url="https://models.inference.ai.azure.com", model="gpt-4o", openai_api_key=OPENAI_API_KEY)
 
     # TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
     # tool = TavilySearchResults(

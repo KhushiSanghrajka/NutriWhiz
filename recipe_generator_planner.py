@@ -4,13 +4,15 @@ from langgraph.prebuilt import ToolNode
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain_core.output_parsers import StrOutputParser
+import os
+
+OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 
 @tool
 def recipe_generator_plan(query: str) -> dict:
     """
     Generates a meal plan or an instant recipe based on the user's query.
     """
-    openai_api_key = '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' 
     prompt_template = """
         You are an ecpert recipe generator and a weekly meal planner. Based on the user query, you have to decide whether to generate an instant recipe or a weekly meal plan.
             The input will be a natural language sentence, and the agent needs to extract the following key phrases and understand them:
@@ -35,7 +37,7 @@ def recipe_generator_plan(query: str) -> dict:
         """
     
     prompt = PromptTemplate(input_variables=["query"], template=prompt_template)
-    llm = ChatOpenAI(base_url="https://models.inference.ai.azure.com", model="gpt-4o", openai_api_key='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')
+    llm = ChatOpenAI(base_url="https://models.inference.ai.azure.com", model="gpt-4o", openai_api_key=OPENAI_API_KEY)
 
     recipe_chain = prompt | llm | StrOutputParser()
     result = recipe_chain.invoke(query, return_only_outputs=True)

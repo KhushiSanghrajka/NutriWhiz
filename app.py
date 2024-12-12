@@ -7,12 +7,12 @@ from recipe_generator_planner import recipe_generator_plan
 from faq_answers import faq_answers
 from flask import Flask, request, jsonify
 from langgraph.graph import Graph
-# from meal_planner.calorie_counter import calorie_counter
+import os
 import json
 
 # Initialize Flask app
 app = Flask(__name__)
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 
 tools=[calorie_counter, recipe_agent, recipe_generator_plan, faq_answers]
 model_With_tools = ChatOpenAI(base_url="https://models.inference.ai.azure.com", model="gpt-4o", api_key=OPENAI_API_KEY).bind_tools(tools)

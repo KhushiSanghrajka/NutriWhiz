@@ -4,12 +4,14 @@ from langchain.vectorstores import FAISS
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_core.tools import tool
 import json
+import os
 
+OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 # Initialize OpenAI embeddings
 embeddings = OpenAIEmbeddings(
     base_url="https://models.inference.ai.azure.com",
     model="text-embedding-3-small",
-    api_key='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'  # Replace with your actual API key
+    api_key=OPENAI_API_KEY  # Replace with your actual API key
 )
 
 # Step 1: Load documents (CSV file)
