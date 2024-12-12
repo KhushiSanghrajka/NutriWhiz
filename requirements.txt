@@ -1,0 +1,22 @@
+# azure-ai-inference
+# azure-core
+bs4==0.0.2
+chromadb==0.5.23
+blinker==1.9.0
+flask==3.1.0
+flask_cors
+langchain==0.3.10
+langchain-openai==0.2.10
+langchain-community==0.3.10
+langchain-core==0.3.22
+langchain-nomic==0.1.4
+langchain-experimental
+langchain-text-splitters==0.3.0
+langgraph==0.2.56
+kagglehub==0.3.4
+faiss-cpu
+streamlit==1.38.0
+requests==2.32.3
+pydantic==2.9.1
+pudantic_core==2.23.3
+PyPDF2==3.0.1
