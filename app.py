@@ -22,21 +22,13 @@ tool_node = ToolNode(tools)
 def ask_agent():
     data = request.json
     query = str(data.get("query"))
-    # query= "What should be my calorie intake. I am a 25-year-old female, weighing 47kg, height is 166.75cm, who does moderate activity."
     if not query:
         return jsonify({"error": "Query is required"}), 400
 
     try:
         response = tool_node.invoke({"messages": [model_With_tools.invoke(query)]})
         print("RES:::", response)
-        # if not(isinstance(response, str)):
-        #     print("res if:::", response)
-        #     # return {"response": json.loads(response['messages'][0].content)})
-        #     return {"response": response}
-        # else:
-        #     print("res else:::", response)
         return jsonify({"response": json.loads(response['messages'][0].content)})
-            # return jsonify({"response": response})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

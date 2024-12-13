@@ -1,4 +1,4 @@
-# NutriWhiz - AI Meal Planner & Nutrition Assistant 🍎🥗
+# 🥑 NutriWhiz - AI Meal Planner & Nutrition Assistant 🥗
 
 **NutriWhiz** is your ultimate companion for all things nutrition and meal planning. With the power of AI, NutriWhiz helps you:
 - Plan your meals based on your dietary preferences (Jain, vegetarian, vegan, etc.)
@@ -47,14 +47,17 @@ Before running the app, ensure you have the following installed:
     python -m venv venv
     source venv/bin/activate 
     # On Windows, use `venv\Scripts\activate`
-3. **Install required dependencies**
+3. **Change Branch**
+    ```bash
+    git checkout development
+4. **Install required dependencies**
     ```bash
     pip install -r requirements.txt
-4. **Run the app**
+5. **Run the app**
     ```bash
     python app.py
     streamlit run streamlit_app.py
-5. Open your browser and navigate to http://localhost:8501 to use the app.
+6. Open your browser and navigate to http://localhost:8501 to use the app.
 
 ## Usage
 Once the app is running, you can interact with NutriWhiz by entering queries like:

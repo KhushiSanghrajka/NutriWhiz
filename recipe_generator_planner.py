@@ -14,7 +14,7 @@ def recipe_generator_plan(query: str) -> dict:
     Generates a meal plan or an instant recipe based on the user's query.
     """
     prompt_template = """
-        You are an ecpert recipe generator and a weekly meal planner. Based on the user query, you have to decide whether to generate an instant recipe or a weekly meal plan.
+        You are an expert recipe generator and a weekly meal planner. Based on the user query, you have to decide whether to generate an instant recipe or a weekly meal plan.
             The input will be a natural language sentence, and the agent needs to extract the following key phrases and understand them:
 
             1. Preferences: The user may mention preferences such as:
